@@ -1,6 +1,8 @@
-function getMinutesToFriday(): number {
+import { APIGatewayProxyHandlerV2} from "aws-lambda";
+
+function getMinutesToFriday(dateInMilisecondsFromEpoch: string): number {
     // Get the current date
-    const now = new Date();
+    const now = new Date(Number(dateInMilisecondsFromEpoch));
   
     // Calculate the number of days until the next Friday
     let daysUntilFriday = 5 - now.getDay();
@@ -24,9 +26,16 @@ function getMinutesToFriday(): number {
   }
   
 
-export async function main() {
+  export const main: APIGatewayProxyHandlerV2 = async (event) => {
+    if(!event.pathParameters?.date){
+        return {
+          statusCode: 500,
+          body: 'Wrong date!'
+        };
+      }
+
     return {
       statusCode: 200,
-      body: getMinutesToFriday()
+      body: getMinutesToFriday(event.pathParameters?.date).toString()
     };
 }

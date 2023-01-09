@@ -42,7 +42,8 @@ export default function App() {
 
   useEffect(() => {
     async function fetchData() {
-      fetch(process.env.REACT_APP_API_URL + '/isFriday', {
+      const date = new Date().getTime();
+      fetch(process.env.REACT_APP_API_URL + `/isFriday/${date}`, {
         method: "GET",
       })
         .then((response) => response.text())
@@ -52,7 +53,8 @@ export default function App() {
   }, []);
 
   function onClick() {
-    fetch(process.env.REACT_APP_API_URL + '/minutesToFriday', {
+    const date = new Date().getTime();
+    fetch(process.env.REACT_APP_API_URL + `/minutesToFriday/${date}`, {
       method: "GET",
     })
       .then((response) => response.text())
