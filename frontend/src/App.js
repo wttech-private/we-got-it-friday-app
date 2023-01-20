@@ -64,9 +64,9 @@ export default function App() {
   return (
     <div className="App">
       {isFriday === 'true' ? (
-        <Message>Dzisiaj piątek! :D</Message>
+        <Message>Today is Friday :D</Message>
       ) : (
-        <Message>Dzisiaj nie jest piątek :(</Message>
+        <Message>Today is not Friday :(</Message>
       )}
       <StyledButton onClick={onClick} >Ile mam jeszcze czekać?</StyledButton>
       {minutesToFriday ? (
