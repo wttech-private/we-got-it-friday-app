@@ -37,5 +37,7 @@ function getMinutesToFriday(dateInMilisecondsFromEpoch: string): number {
     return {
       statusCode: 200,
       body: getMinutesToFriday(event.pathParameters?.date).toString()
+      // statusCode: 500,
+      // body: undefined
     };
 }
