@@ -66,13 +66,13 @@ export default function App() {
       {isFriday === 'true' ? (
         <Message id="isFriday">Dzisiaj jest piątek! :D</Message>
       ) : (
-        <Message id="isFriday"></Message>
+        <Message></Message>
       )}
 
       {isFriday === 'false' ? (
         <Message id="isFriday">Piątek? To nie dzisiaj :(</Message>
       ) : (
-        <Message id="isFriday"></Message>
+        <Message></Message>
       )}
 
       <StyledButton id="button" onClick={onClick} >Jak długo mam czekać!?</StyledButton>

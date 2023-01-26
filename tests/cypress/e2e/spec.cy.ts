@@ -1,7 +1,12 @@
 describe('Friday App', () => {
   it('displays an info that today is not Friday', () => {
-    cy.visit('/')
+    cy.intercept('GET', '/isFriday/*', {
+      statusCode: 200,
+      body: false
+    })
+      .visit('/')
       .get('#isFriday')
-      .should('have.text', 'Piątek? To nie dzisiaj :(');
+      .should('have.text', 'Piątek? To nie dzisiaj :(')
+      .percySnapshot();
   });
 });
