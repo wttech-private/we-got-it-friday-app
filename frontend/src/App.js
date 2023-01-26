@@ -64,13 +64,20 @@ export default function App() {
   return (
     <div className="App">
       {isFriday === 'true' ? (
-        <Message id="isFriday">Today is Friday! :D</Message>
+        <Message id="isFriday">Dzisiaj jest piątek! :D</Message>
       ) : (
-        <Message id="isFriday">Today is not Friday :(</Message>
+        <Message id="isFriday"></Message>
       )}
-      <StyledButton id="button" onClick={onClick} >How long should I wait?</StyledButton>
+
+      {isFriday === 'false' ? (
+        <Message id="isFriday">Piątek? To nie dzisiaj :(</Message>
+      ) : (
+        <Message id="isFriday"></Message>
+      )}
+
+      <StyledButton id="button" onClick={onClick} >Jak długo mam czekać!?</StyledButton>
       {minutesToFriday ? (
-        <Message id="minutes">There are {minutesToFriday} minutes to Friday.</Message>
+        <Message id="minutes">Zostało {minutesToFriday} minut do piątku.</Message>
       ) : null}
     </div>
   );
