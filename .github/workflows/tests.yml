@@ -22,7 +22,6 @@ jobs:
       - name: 'Log'
         if: ${{ always() }}
         run: |
-          cat tests/log.txt
           ls
           ls tests
 
