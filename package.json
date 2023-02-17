@@ -10,7 +10,7 @@
     "console": "sst console",
     "typecheck": "tsc --noEmit",
     "test": "sst bind -- vitest run",
-    "percy:dev": "npm run percy exec -- cypress run"
+    "percy:dev": "npx percy exec -- cypress run"
   },
   "devDependencies": {
     "@percy/cli": "^1.17.0",
