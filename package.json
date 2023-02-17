@@ -10,7 +10,7 @@
     "console": "sst console",
     "typecheck": "tsc --noEmit",
     "test": "sst bind -- vitest run",
-    "percy:dev": "npm run --prefix ./tests/cypress percy exec -- npx cypress run --browser chrome --e2e --config-file=cypress/config/components/dev.ts --spec cypress/e2e/components/**"
+    "percy:dev": "npm run --prefix tests percy exec -- cypress run"
   },
   "devDependencies": {
     "@percy/cli": "^1.17.0",

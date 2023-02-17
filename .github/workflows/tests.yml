@@ -19,3 +19,5 @@ jobs:
           PERCY_TOKEN: ${{ secrets.percyToken }}
         with:
           command: npm run percy:dev | tee log.txt
+      - name: 'Log'
+        run: cat log.txt
