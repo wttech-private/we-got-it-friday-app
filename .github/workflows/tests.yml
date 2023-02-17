@@ -19,7 +19,6 @@ jobs:
           PERCY_TOKEN: ${{ secrets.percyToken }}
         with:
           command: npm run percy:dev | tee log.txt
-          working-directory: tests
       - name: 'Log'
         if: ${{ always() }}
         run: cat log.txt
