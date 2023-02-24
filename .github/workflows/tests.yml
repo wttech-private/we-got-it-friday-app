@@ -28,13 +28,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
 
-      - name: Debug
-        run: |
-          ls
-          pwd
-
       - name: Deploy
-        run: npx sst deploy --stage prod
+        run: npx sst deploy --stage prod --outputs-file out.json
+
+      - name: Upload logs to artifactory
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploy-output
+          path: out.json
 
   # run-tests:
   #   name: 'Run tests'
