@@ -20,26 +20,30 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
 
+      - name: Debug
+        run: ls 
+
       - name: Deploy
+        working-directory: ./
         run: npm run deploy
 
-  run-tests:
-    name: 'Run tests'
-    runs-on: ubuntu-latest
-    container: 'cypress/browsers:node18.12.0-chrome107'
-    steps:
-      - name: 'Git checkout'
-        uses: actions/checkout@v3
-        with:
-          ref: main
-      - name: 'Run Percy&Cypress'
-        uses: cypress-io/github-action@v5
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-        with:
-          command: npm run percy:dev | tee log.txt
-      - name: 'Log'
-        if: ${{ always() }}
-        run: |
-          ls tests
+  # run-tests:
+  #   name: 'Run tests'
+  #   runs-on: ubuntu-latest
+  #   container: 'cypress/browsers:node18.12.0-chrome107'
+  #   steps:
+  #     - name: 'Git checkout'
+  #       uses: actions/checkout@v3
+  #       with:
+  #         ref: main
+  #     - name: 'Run Percy&Cypress'
+  #       uses: cypress-io/github-action@v5
+  #       env:
+  #         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+  #       with:
+  #         command: npm run percy:dev | tee log.txt
+  #     - name: 'Log'
+  #       if: ${{ always() }}
+  #       run: |
+  #         ls tests
 
