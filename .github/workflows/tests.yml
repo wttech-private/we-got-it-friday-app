@@ -34,8 +34,7 @@ jobs:
           pwd
 
       - name: Deploy
-        working-directory: ./
-        run: npm run deploy -- --stage prod
+        run: npx sst deploy --stage prod
 
   # run-tests:
   #   name: 'Run tests'
