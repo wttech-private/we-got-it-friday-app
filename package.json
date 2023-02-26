@@ -9,8 +9,7 @@
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
-    "test": "sst bind -- vitest run",
-    "percy:dev": "cd tests && npx percy exec -- cypress run"
+    "test": "sst bind -- vitest run"
   },
   "devDependencies": {
     "@serverless-stack/cli": "1.16.1",
