@@ -18,6 +18,7 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
         with:
+          working-directory: tests
           command: npm run percy:dev
       - name: Deploy report to Github Pages
         if: always()
