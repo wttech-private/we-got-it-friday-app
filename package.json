@@ -13,13 +13,10 @@
     "percy:dev": "cd tests && npx percy exec -- cypress run"
   },
   "devDependencies": {
-    "@percy/cli": "^1.20.0",
-    "@percy/cypress": "^3.1.2",
     "@serverless-stack/cli": "1.16.1",
     "@serverless-stack/resources": "1.16.1",
     "@tsconfig/node16": "1.0.3",
     "aws-cdk-lib": "2.39.1",
-    "cypress": "^12.6.0",
     "typescript": "4.8.4",
     "vitest": "0.24.5"
   },

@@ -30,7 +30,7 @@ describe('Friday App', () => {
       .get('#button')
       .click()
       .get('#minutes')
-      .should('have.text', 'Zostało 1234 minut do piątku.')
+      .should('have.text', 'Zostało 1234 minut do piątku!.')
   });
 });
 
