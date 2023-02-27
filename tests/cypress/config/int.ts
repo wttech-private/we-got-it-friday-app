@@ -5,6 +5,7 @@ export default defineConfig({
     viewportWidth: 1200,
     baseUrl: "https://dwwsfgcsv3q4k.cloudfront.net",
     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
       config.video = false;
       return config;
     },
