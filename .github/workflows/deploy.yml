@@ -3,7 +3,7 @@ name: 'Deploy'
 on:
   workflow_dispatch:
     inputs:
-      name:
+      env:
         description: Env
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
           aws-region: us-east-2
 
       - name: Deploy
-        run: npx sst deploy --stage ${{ github.event.inputs.message }} --outputs-file out.json
+        run: npx sst deploy --stage ${{ github.event.inputs.env }} --outputs-file out.json
 
       - name: Upload logs to artifactory
         uses: actions/upload-artifact@v2
