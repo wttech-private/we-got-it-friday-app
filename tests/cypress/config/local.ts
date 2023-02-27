@@ -2,6 +2,8 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
+    reporter: 'cypress-mochawesome-reporter',
+    screenshotsFolder: 'reports/screenshots',
     viewportWidth: 1200,
     baseUrl: "http://localhost:3000",
     setupNodeEvents(on, config) {
