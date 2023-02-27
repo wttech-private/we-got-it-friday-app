@@ -1,4 +1,4 @@
-name: 'Deploy'
+name: 'CI'
 
 on:
   push:
@@ -7,10 +7,8 @@ on:
 
 jobs:
   deploy-int:
-    name: 'Deploy'
+    name: 'Deploy integration'
     runs-on: ubuntu-latest
-    environment:
-      name: int
     steps:
       - name: Fake Deploy
         run:  echo "Fake deploy!"
@@ -44,7 +42,7 @@ jobs:
       #     name: deploy-output
       #     path: out.json
   run-tests-int:
-    name: 'Run tests'
+    name: 'Run tests on integration'
     runs-on: ubuntu-latest
     container: 'cypress/browsers:node18.12.0-chrome107'
     needs: deploy-int
@@ -68,7 +66,7 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: tests/cypress/reports/html
   deploy-prod:
-    name: 'Deploy'
+    name: 'Deploy production'
     runs-on: ubuntu-latest
     environment:
       name: prod
@@ -106,7 +104,7 @@ jobs:
       #     name: deploy-output
       #     path: out.json
   run-tests-prod:
-    name: 'Run tests'
+    name: 'Run tests on production'
     runs-on: ubuntu-latest
     container: 'cypress/browsers:node18.12.0-chrome107'
     needs: deploy-prod
