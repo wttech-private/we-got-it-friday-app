@@ -2,6 +2,9 @@ name: 'Test'
 
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment to test"
 
 jobs:
   run-tests:
@@ -19,7 +22,7 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
         with:
           working-directory: tests
-          command: npm run percy:dev
+          command: npm run percy:${{ github.event.inputs.env }}
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
