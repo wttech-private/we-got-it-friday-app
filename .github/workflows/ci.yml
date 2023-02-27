@@ -13,7 +13,7 @@ jobs:
       name: int
     steps:
       - name: Fake Deploy
-        run:  echo "Fake deploy!""
+        run:  echo "Fake deploy!"
 
       # - name: 'Git checkout'
       #   uses: actions/checkout@v3
@@ -75,7 +75,7 @@ jobs:
     needs: run-tests-int
     steps:
       - name: Fake Deploy
-        run:  echo "Fake deploy!""
+        run:  echo "Fake deploy!"
 
       # - name: 'Git checkout'
       #   uses: actions/checkout@v3
